@@ -1,0 +1,80 @@
+body {
+	background-color: #e6e6e6;
+}
+
+#header {
+	background: ;
+	width: 100%;
+	height: 100px;
+	margin: 0;
+	border-bottom: 1px double blue;
+}
+
+#name {
+	background-color: ;
+	width: 150px;
+	height: 100px;
+	float: left;
+	margin-left: 150px;
+}
+
+#menu {
+	float: right;
+	margin-right: 150px;
+	margin-top: 20px;
+	font-size: 16px;
+}
+
+#home_left {
+	width: 1000px;
+	float: left;
+}
+
+#home_right {
+	width: 300px;
+	float: left;
+	text-align: center;
+	margin-top: 50px;
+}
+
+#base_menu {
+	position: fixed;
+	margin-left: 50px;
+	float: left;
+	margin-top: 100px;
+}
+
+#base_contenter {
+	margin-left: 200px;
+}
+
+.base_content {
+	float: left;
+}
+
+#base_ul li {
+	float: left;
+}
+
+#aboutme_resume {
+	text-align: center;
+	margin-top: 30px;
+}
+
+#article_content {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 100px;
+	background: white;
+	width: 1150px;
+	height: 100%;
+	padding: 50px;
+	font-size: 16px;
+}
+
+#article_content li{
+	margin-bottom: 10px;
+}
+#article_content a:hover {
+	color: red;
+}

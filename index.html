@@ -1,42 +1,246 @@
----
-layout: page
-description: "一生想做浪漫极客"
----
+<!DOCTYPE html>
+<html>
 
-{% for post in paginator.posts %}
-<div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">
-            {{ post.title }}
-        </h2>
-        {% if post.subtitle %}
-        <h3 class="post-subtitle">
-            {{ post.subtitle }}
-        </h3>
-        {% endif %}
-        <div class="post-content-preview">
-            {{ post.content | strip_html | truncate:200 }}
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
-    </p>
-</div>
-<hr>
-{% endfor %}
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
 
-<!-- Pager -->
-{% if paginator.total_pages > 1 %}
-<ul class="pager">
-    {% if paginator.previous_page %}
-    <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
-    </li>
-    {% endif %}
-    {% if paginator.next_page %}
-    <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
-    </li>
-    {% endif %}
+		<link rel="stylesheet" href="css/new_file.css" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/mycss.css" />
+	</head>
+
+	<body>
+		<div id="header">
+			<div id="name">
+				<h1>LZJ</h1>
+			</div>
+			<div id="menu">
+				<ul class="nav nav-pills">
+					<li role="presentation" class="active"><a href="#">Home</a></li>
+					<li role="presentation"><a href="aboutme.html">About me</a></li>
+					<li role="presentation"><a href="article.html">Article</a></li>
+					<li role="presentation"><a href="#">Demo</a></li>
+					<li role="presentation"><a href="front-end base.html">Front-end base</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="home_left">
+			<article  class="article article-type-post  article-index" itemscope itemprop="blogPost">
+				<div class="article-inner">
+					<header class="article-header">
+						<h1 itemprop="name">
+                          <a class="article-title" href="article/用css样式实现瀑布流效果.html">用css样式实现瀑布流效果</a>
+                        </h1>
+						<a href="article/用css样式实现瀑布流效果.html" class="archive-article-date">
+							<time itemprop="datePublished">2017-03-11</time>
+						</a>
+					</header>
+
+					<div class="article-entry" itemprop="articleBody">						
+						<h1 id="用css样式实现瀑布流效果"><a href="#用css样式实现瀑布流效果" class="headerlink" title="用css样式实现瀑布流效果"></a>用css样式实现瀑布流效果</h1><blockquote>
+<p>主要是CSS3 中的多列columns属性的运用</p>
+</blockquote>
+<h2 id="W3C中的columns"><a href="#W3C中的columns" class="headerlink" title="W3C中的columns"></a>W3C中的columns</h2><ul>
+<li><strong>浏览器支持</strong></li>
 </ul>
-{% endif %}
+<blockquote>
+<p>Internet Explorer 10 和 Opera 支持 column 属性。<br>Firefox 支持替代的 -moz-column 属性。<br>Safari 和 Chrome 支持替代的 -webkit-column 属性。</p>
+</blockquote>
+<p><strong>注释：</strong>Internet Explorer 9 以及更早版本的浏览器不支持 column 属性。</p>
+<ul>
+<li><strong>CSS3 创建多列</strong></li>
+</ul>
+<p>column-count 属性规定元素应该被分隔的列数：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">//创建三列</div><div class="line">   column-count:3;</div><div class="line">   -moz-column-count:3; 	/* Firefox */</div><div class="line">   -webkit-column-count:3; /* Safari 和 Chrome */</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>CSS3 规定列之间的间隔</strong></li>
+</ul>
+</div>
+					
+					<div class="article-info article-info-index">
+						<p class="article-more-link">
+							<a class="article-more-a" href="article/用css样式实现瀑布流效果.html">展开全文 >></a>
+						</p>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</article>
+			
+			<article  class="article article-type-post  article-index" itemscope itemprop="blogPost">
+				<div class="article-inner">
+					<header class="article-header">
+						<h1 itemprop="name">
+                          <a class="article-title" href="article/数组基础.html">数组基础</a>
+                        </h1>
+						<a href="article/数组基础.html" class="archive-article-date">
+							<time itemprop="datePublished">2017-02-20</time>
+						</a>
+					</header>
+
+					<div class="article-entry" itemprop="articleBody">						
+						<h1 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型"></a>数组类型</h1><h3 id="1-数组的创建与读取"><a href="#1-数组的创建与读取" class="headerlink" title="1. 数组的创建与读取"></a>1. 数组的创建与读取</h3><ul>
+<li><strong>创建</strong><blockquote>
+<p>数组的创建方式有好几种，主要有以下这种：</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [];<span class="comment">//定义空数组</span></div><div class="line"><span class="keyword">var</span> arr = [<span class="string">"jack"</span>,<span class="string">"alice"</span>,<span class="string">"simon"</span>];<span class="comment">//定义字符串数组</span></div><div class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>();<span class="comment">//定义空数组</span></div><div class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"jack"</span>,<span class="string">"alice"</span>,<span class="string">"simon"</span>);<span class="comment">//定义字符串数组</span></div><div class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>);<span class="comment">//定义一个长度为3的空数组</span></div></pre></td></tr></table></figure>
+<ul>
+<li><strong>读取</strong><blockquote>
+<p>数组的读取比较简单，直接在数组后加上索引就可以读出了</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"jack"</span>,<span class="string">"alice"</span>,<span class="string">"simon"</span>);</div><div class="line"><span class="built_in">console</span>.log(arr[<span class="number">1</span>]);</div></pre></td></tr></table></figure>
+<p><img src="http://on225liw3.bkt.clouddn.com/read.png" alt="数组读取的图片"></p>
+<p><strong>思考下：</strong></p>
+<blockquote>
+<p>如果定义了长度为3的数组，读第四个会怎样？</p>
+<p>如果将数组的长度为3变为10，中间的是否可读？值为什么？长度length为多少？</p>
+</ol>
+</blockquote>
+</div>
+					
+					<div class="article-info article-info-index">
+						<p class="article-more-link">
+							<a class="article-more-a" href="article/数组基础.html">展开全文 >></a>
+						</p>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</article>
+			
+			<article  class="article article-type-post  article-index" itemscope itemprop="blogPost">
+				<div class="article-inner">
+					<header class="article-header">
+						<h1 itemprop="name">
+                          <a class="article-title" href="article/ajax无刷新页面切换,历史记录后退前进解决.html">ajax无刷新页面切换,历史记录后退前进解决</a>
+                        </h1>
+						<a href="article/ajax无刷新页面切换,历史记录后退前进解决.html" class="archive-article-date">
+							<time itemprop="datePublished">2017-02-08</time>
+						</a>
+					</header>
+
+					<div class="article-entry" itemprop="articleBody">						
+						<blockquote>
+						<p>我们在工作中常常遇到需要用ajax来显示下一页和上一页，ajax可以不刷新页面进行操作！但是，假如你想通过浏览器的历史记录返回上一页和下一页。那么ajax默认是做不到的！一般需求要历史返回的时候，我们通常不使用ajax。但是呢，假如一个页面中，只有一个地方是需要动态的上一页下一页，其他地方都是固定的，那么这种情况除了使用模板之外，我们使用ajax来操作显得格外方便！那么如何解决ajax历史记录的返回和前进呢？</p>
+						</blockquote>
+						<h1>history.state</h1>
+						<P>当前URL下对应的状态信息。如果当前URL不是通过pushState或者replaceState产生的，那么history.state是null。</P>
+						<h1>history.pushState(state, title, url)</h1>
+						<P>将当前URL和history.state加入到history中，并用新的state和URL替换当前。不会造成页面刷新。</P>
+						<blockquote>
+							<p>state：与要跳转到的URL对应的状态信息。</p>
+							<p>title：页面的题目,假如没有就穿空字符串就可以。</p>
+							<p>url：要跳转到的URL地址，不能跨域。</p>
+						</blockquote>
+						</div>
+					
+					<div class="article-info article-info-index">
+						<p class="article-more-link">
+							<a class="article-more-a" href="article/ajax无刷新页面切换,历史记录后退前进解决.html">展开全文 >></a>
+						</p>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</article>
+			
+            <article  class="article article-type-post  article-index" itemscope itemprop="blogPost">
+				<div class="article-inner">
+					<header class="article-header">
+						<h1 itemprop="name">
+                          <a class="article-title" href="article/setTimeout(fn,0)的解释和应用.html">setTimeout(fn,0)的解释和应用</a>
+                        </h1>
+						<a href="article/setTimeout(fn,0)的解释和应用.html" class="archive-article-date">
+							<time itemprop="datePublished">2017-01-22</time>
+						</a>
+					</header>
+
+					<div class="article-entry" itemprop="articleBody">
+						<blockquote>
+						<p>关于setTimeout，我之前的文章介绍过。setTimeout我们经常用来做延迟执行，那么setTimeout(fn,0)，是不是就不延迟执行了！答案肯定是否定的。这篇文章，我详细介绍一下setTimeout(fn,0)及其应用。</p>
+						</blockquote>
+						<h1>案例分析</h1>
+						<P>for循环中有setTimeout，是我们在闭包案例中经常遇到和解决的一个问题:</P>
+						<pre><code>
+                            for (var i = 0; i &lt; 3; i++) {
+                                setTimeout(function() {
+                                 console.log(i);
+                                }, 0);
+                                console.log(i);
+                            }
+						</code></pre>
+						<blockquote>
+							<p>因为setTimeout是注册事件，要等到当前脚本的同步任务和“任务队列”中已有的事件，全部处理完以后，才能执行。因此，上面执行结果是把所有的console都执行完毕之后才能执行setTimeout,因此，执行结果如下：</p>
+						</blockquote>
+						<pre><code>
+                            0
+                            1
+                            2
+                            3
+                            3
+                            3			
+			            </div>
+					
+					<div class="article-info article-info-index">
+						<p class="article-more-link">
+							<a class="article-more-a" href="article/a标签嵌套解决方案.html">展开全文 >></a>
+						</p>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</article>
+			
+			<article  class="article article-type-post  article-index" itemscope itemprop="blogPost">
+				<div class="article-inner">
+					<header class="article-header">
+						<h1 itemprop="name">
+                          <a class="article-title" href="article/a标签嵌套解决方案.html">a标签嵌套解决方案</a>
+                        </h1>
+						<a href="article/a标签嵌套解决方案.html" class="archive-article-date">
+							<time itemprop="datePublished">2017-01-10</time>
+						</a>
+					</header>
+
+					<div class="article-entry" itemprop="articleBody">
+						<blockquote>
+						<p>在实际网页布局之中，我们有时候需要一整块点击区域中间还要有部分按钮点击，也就是需要a标签嵌套a标签，如下：</p>
+						</blockquote>
+						<pre><code>
+                            &lt;<span class="keyword">a</span><span class="built_in"> href</span>="<span class="string">#outer</span>"&gt;outer
+                              &lt;<span class="keyword">a</span><span class="built_in"> href</span>="<span class="string">#inner</span>"&gt;inner&lt;/<span class="keyword">a</span>&gt;
+                            &lt;/<span class="keyword">a</span>&gt;
+						</code></pre>
+						<p>但是我们会发现，这种嵌套，浏览器会直接错误解析，解析结果如下：</p>
+						<pre><code>
+                            &lt;<span class="keyword">a</span><span class="built_in"> href</span>="<span class="string">#outer</span>"&gt;outer&lt;/<span class="keyword">a</span>&gt;
+                            &lt;<span class="keyword">a</span><span class="built_in"> href</span>="<span class="string">#inner</span>"&gt;inner&lt;/<span class="keyword">a</span>&gt;                          
+						</code></pre>						
+					</div>
+					
+					<div class="article-info article-info-index">
+						<p class="article-more-link">
+							<a class="article-more-a" href="article/a标签嵌套解决方案.html">展开全文 >></a>
+						</p>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</article>
+						
+		</div>
+
+		<div id="home_right">
+			<img src="img/me.jpg" alt="..." class="img-rounded" height="190">
+			<ul class="list-group">
+				<li class="list-group-item list-group-item-success">
+					<h2>梁之健</h2></li>
+				<li class="list-group-item list-group-item-warning">Keep moving <br>and you will see the tomorrow sunshine!</li>
+				<li class="list-group-item list-group-item-danger"><h4>一个<br>不愿只做技术宅的<br>饥渴者</h4></li>
+			</ul>
+		</div>
+
+	</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+
+		<link rel="stylesheet" href="../css/new_file.css" />
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/mycss.css" />
+	</head>
+
+	<body>
+		<div id="header">
+			<div id="name">
+				<h1>LZJ</h1>
+			</div>
+			<div id="menu">
+				<ul class="nav nav-pills">
+					<li role="presentation"><a href="../index.html">Home</a></li>
+					<li role="presentation"><a href="../aboutme.html">About me</a></li>
+					<li role="presentation" class="active"><a href="#">Article</a></li>
+					<li role="presentation"><a href="#">Demo</a></li>
+					<li role="presentation"><a href="../front-end base.html">Front-end base</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="home_left">
+			<article  class="article article-type-post  article-index" itemscope itemprop="blogPost">
+				<div class="article-inner">
+					<header class="article-header">
+						<h1 itemprop="name">
+                          <a class="article-title" href="">a标签嵌套解决方案</a>
+                        </h1>
+						<a href="" class="archive-article-date">
+							<time itemprop="datePublished">2017-01-10</time>
+						</a>
+					</header>
+
+					<div class="article-entry" itemprop="articleBody">
+						<h1>a标签嵌套解决方案</h1>
+						<blockquote>
+						<p>在实际网页布局之中，我们有时候需要一整块点击区域中间还要有部分按钮点击，也就是需要a标签嵌套a标签，如下：</p>
+						</blockquote>
+						<pre><code>
+                            &lt;<span class="keyword">a</span><span class="built_in"> href</span>="<span class="string">#outer</span>"&gt;outer
+                              &lt;<span class="keyword">a</span><span class="built_in"> href</span>="<span class="string">#inner</span>"&gt;inner&lt;/<span class="keyword">a</span>&gt;
+                            &lt;/<span class="keyword">a</span>&gt;
+						</code></pre>
+						<p>但是我们会发现，这种嵌套，浏览器会直接错误解析，解析结果如下：</p>
+						<pre><code>
+                            &lt;<span class="keyword">a</span><span class="built_in"> href</span>="<span class="string">#outer</span>"&gt;outer&lt;/<span class="keyword">a</span>&gt;
+                            &lt;<span class="keyword">a</span><span class="built_in"> href</span>="<span class="string">#inner</span>"&gt;inner&lt;/<span class="keyword">a</span>&gt;                          
+						</code></pre>
+						<p>下面介绍一下解决方案：</p> 
+						<h1>方案一：使用object标签进行嵌套</h1>
+						<p>例如如下写，就不会错误解析了！：</p> 
+						<pre><code>
+	                    &lt;<span class="keyword">a</span><span class="built_in"> href</span>="<span class="string">#outer</span>"&gt;outer
+                              &lt;<span class="keyword">object</span>&gt;&lt;<span class="keyword">a</span><span class="built_in"> href</span>="<span class="string">#inner</span>"&gt;inner&lt;/<span class="keyword">a</span>&gt;&lt;/<span class="keyword">object</span>&gt;
+                            &lt;/<span class="keyword">a</span>&gt;  
+						</code></pre>
+						<blockquote>
+							<p>这种写法的典型应用最多的是列表整个需要点击，列表里面有电话号码需要单独点击拨打！</p>
+						</blockquote>
+						<h1>方案二：使用定位方式</h1>
+						<pre><code>
+                            &lt;<span class="keyword">a</span><span class="built_in"> href</span>="<span class="string">#outer</span>"&gt;outer&lt;/<span class="keyword">a</span>&gt;
+                            &lt;<span class="keyword">a</span><span class="built_in"> href</span>="<span class="string">#inner</span>"&gt;inner&lt;/<span class="keyword">a</span>&gt;                          
+						</code></pre>
+						<blockquote>
+							<p>外层的haorooms通过设置display:inline-block，以及绝对定位，将其放在里层a标签的位置。然后通过调整里层a标签及外层a的z-index大小，使得鼠标能正确选中a标签；</p>
+                            <p>这种方法的核心思想就是通过定位来模拟实现我们想要达到的效果</p>
+						</blockquote>
+						<h1>方案三：使用 HTML的 < area>< map>标签来实现</h1>
+						<pre><code>
+                             &lt;<span class="keyword">a</span><span class="built_in"> href</span>=&quot;<span class="string">outer</span>&quot;&gt;
+                               outerA
+                               &lt;<span class="keyword">map</span>&gt;
+                                  &lt;<span class="keyword">area</span><span class="built_in"> shape</span>=&quot;<span class="string">rect</span>&quot; <span class="built_in">coords</span>=&quot;<span class="string">0,0,200,21</span>&quot; <span class="built_in">href</span>=&quot;<span class="string">inner</span>&quot; &gt;
+                               &lt;/<span class="keyword">map</span>&gt;
+                             &lt;/<span class="keyword">a</span>&gt;
+						</code></pre>
+						<h1>方案四：使用span等标签加js事件来代替a标签</h1>
+						<blockquote>
+							<p>我们也可以用span，标签等替代a标签，只不过要多写一些js跳转代码了，通过js来实现a标签所能实现的效果！</p>                         
+						</blockquote>
+					</div>
+				</div>
+			</article>
+						
+		</div>
+
+		<div id="home_right">
+			<img src="../img/me.jpg" alt="..." class="img-rounded" height="190">
+			<ul class="list-group">
+				<li class="list-group-item list-group-item-success">
+					<h2>梁之健</h2></li>
+				<li class="list-group-item list-group-item-warning">Keep moving <br>and you will see the tomorrow sunshine!</li>
+				<li class="list-group-item list-group-item-danger"><h4>一个<br>不愿只做技术宅的<br>饥渴者</h4></li>
+			</ul>
+		</div>
+
+	</body>
+
+</html>

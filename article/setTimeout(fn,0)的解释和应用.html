@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+
+		<link rel="stylesheet" href="../css/new_file.css" />
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/mycss.css" />
+	</head>
+
+	<body>
+		<div id="header">
+			<div id="name">
+				<h1>LZJ</h1>
+			</div>
+			<div id="menu">
+				<ul class="nav nav-pills">
+					<li role="presentation"><a href="../index.html">Home</a></li>
+					<li role="presentation"><a href="../aboutme.html">About me</a></li>
+					<li role="presentation" class="active"><a href="#">Article</a></li>
+					<li role="presentation"><a href="#">Demo</a></li>
+					<li role="presentation"><a href="../front-end base.html">Front-end base</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="home_left">
+			<article  class="article article-type-post  article-index" itemscope itemprop="blogPost">
+				<div class="article-inner">
+					<header class="article-header">
+						<h1 itemprop="name">
+                          <a class="article-title" href="">setTimeout(fn,0)的解释和应用</a>
+                        </h1>
+						<a href="" class="archive-article-date">
+							<time itemprop="datePublished">2017-01-22</time>
+						</a>
+					</header>
+
+					<div class="article-entry" itemprop="articleBody">
+						<blockquote>
+						<p>关于setTimeout，我之前的文章介绍过。setTimeout我们经常用来做延迟执行，那么setTimeout(fn,0)，是不是就不延迟执行了！答案肯定是否定的。这篇文章，我详细介绍一下setTimeout(fn,0)及其应用。</p>
+						</blockquote>
+						<h1>案例分析</h1>
+						<P>for循环中有setTimeout，是我们在闭包案例中经常遇到和解决的一个问题:</P>
+						<pre><code>
+                            for (var i = 0; i &lt; 3; i++) {
+                                setTimeout(function() {
+                                 console.log(i);
+                                }, 0);
+                                console.log(i);
+                            }
+						</code></pre>
+						<blockquote>
+							<p>因为setTimeout是注册事件，要等到当前脚本的同步任务和“任务队列”中已有的事件，全部处理完以后，才能执行。因此，上面执行结果是把所有的console都执行完毕之后才能执行setTimeout,因此，执行结果如下：</p>
+						</blockquote>
+						<pre><code>
+                            0
+                            1
+                            2
+                            3
+                            3
+                            3
+						</code></pre>
+						<h1>for循环和setTimeout</h1>
+						<p>针对这种情况，我们将上面案例如下修改，就可以将setTimeout也可以输出1,2,3.我们将setTimeout里面的匿名函数修改成自调用匿名函数</p>
+						<pre><code>
+                            for (var i = 0; i &lt; 3; i++) {
+                               setTimeout((function(n) {
+                                  return function() {
+                                     console.log(n);
+                                  };
+                               })(i), 0);
+                               console.log(i);
+                            }
+						</code></pre>
+						<p>结果如下：</p>
+						<pre><code>
+                            0
+                            1
+                            2
+                            0
+                            1
+                            2
+						</code></pre>
+						<h1>应用</h1>
+						<pre><code>
+                            console.log(1);
+
+                            setTimeout(function() {
+                               console.log(2);
+                            }, 0);
+
+                            Promise.resolve().then(function() {
+                               console.log(3);
+                            }).then(function() {
+                               console.log(4);
+                            });
+
+                            console.log(5);
+
+                            // 1
+                            // 5
+                            // 3
+                            // 4
+                            // 2
+						</code></pre>
+						<blockquote>
+							<p>上面代码的执行结果说明，setTimeout(fn, 0)在Promise.resolve之后执行。这是因为setTimeout语句指定的是“正常任务”，即不会在当前的Event Loop（事件循环）执行。而Promise会将它的回调函数，在状态改变后的那一轮Event Loop（事件循环）指定为微任务。所以，3和4输出在5之后、2之前。</p>
+						</blockquote>
+						<blockquote>
+							<p>setTimeout(fn, 0)的一大应用是，可以调整事件的发生顺序。比如，网页开发中，某个事件先发生在子元素，然后冒泡到父元素，即子元素的事件回调函数，会早于父元素的事件回调函数触发。如果，我们先让父元素的事件回调函数先发生，就要用到setTimeout(fn, 0)。</p>
+						</blockquote>
+						<pre><code>
+                            document.getElementById(&quot;haoroomsID&quot;).onclick = function A() {
+                                setTimeout(function B() {
+                                   console.log(&quot;触发子元素事件&quot;)
+                                }, 0)
+                            };
+
+                            document.body.onclick = function C() {
+                                console.log(&quot;触发父元素事件&quot;)
+                            };
+						</code></pre>
+						<p>上面案例，点击haoroomsID会先触发父级元素事件，然后再触发子元素事件。</p>
+					</div>
+				</div>
+			</article>
+						
+		</div>
+
+		<div id="home_right">
+			<img src="../img/me.jpg" alt="..." class="img-rounded" height="190">
+			<ul class="list-group">
+				<li class="list-group-item list-group-item-success">
+					<h2>梁之健</h2></li>
+				<li class="list-group-item list-group-item-warning">Keep moving <br>and you will see the tomorrow sunshine!</li>
+				<li class="list-group-item list-group-item-danger"><h4>一个<br>不愿只做技术宅的<br>饥渴者</h4></li>
+			</ul>
+		</div>
+
+	</body>
+
+</html>

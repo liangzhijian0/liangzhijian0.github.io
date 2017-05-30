@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+
+		<link rel="stylesheet" href="../css/new_file.css" />
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/mycss.css" />
+	</head>
+
+	<body>
+		<div id="header">
+			<div id="name">
+				<h1>LZJ</h1>
+			</div>
+			<div id="menu">
+				<ul class="nav nav-pills">
+					<li role="presentation"><a href="../index.html">Home</a></li>
+					<li role="presentation"><a href="../aboutme.html">About me</a></li>
+					<li role="presentation" class="active"><a href="#">Article</a></li>
+					<li role="presentation"><a href="#">Demo</a></li>
+					<li role="presentation"><a href="../front-end base.html">Front-end base</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="home_left">
+			<article  class="article article-type-post  article-index" itemscope itemprop="blogPost">
+				<div class="article-inner">
+					<header class="article-header">
+						<h1 itemprop="name">
+                          <a class="article-title" href="">用css样式实现瀑布流效果</a>
+                        </h1>
+						<a href="" class="archive-article-date">
+							<time itemprop="datePublished">2017-03-11</time>
+						</a>
+					</header>
+
+					<div class="article-entry" itemprop="articleBody">						
+						<h1 id="用css样式实现瀑布流效果"><a href="#用css样式实现瀑布流效果" class="headerlink" title="用css样式实现瀑布流效果"></a>用css样式实现瀑布流效果</h1><blockquote>
+<p>主要是CSS3 中的多列columns属性的运用</p>
+</blockquote>
+<h2 id="W3C中的columns"><a href="#W3C中的columns" class="headerlink" title="W3C中的columns"></a>W3C中的columns</h2><ul>
+<li><strong>浏览器支持</strong></li>
+</ul>
+<blockquote>
+<p>Internet Explorer 10 和 Opera 支持 column 属性。<br>Firefox 支持替代的 -moz-column 属性。<br>Safari 和 Chrome 支持替代的 -webkit-column 属性。</p>
+</blockquote>
+<p><strong>注释：</strong>Internet Explorer 9 以及更早版本的浏览器不支持 column 属性。</p>
+<ul>
+<li><strong>CSS3 创建多列</strong></li>
+</ul>
+<p>column-count 属性规定元素应该被分隔的列数：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">//创建三列</div><div class="line">   column-count:3;</div><div class="line">   -moz-column-count:3; 	/* Firefox */</div><div class="line">   -webkit-column-count:3; /* Safari 和 Chrome */</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>CSS3 规定列之间的间隔</strong></li>
+</ul>
+<p>column-gap 属性规定列之间的间隔：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">   div&#123;</div><div class="line">//规定列之间 40 像素的间隔：</div><div class="line">   -moz-column-gap:40px;		/* Firefox */</div><div class="line">   -webkit-column-gap:40px;	/* Safari 和 Chrome */</div><div class="line">   column-gap:40px;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>CSS3 列规则</strong></li>
+</ul>
+<p>column-rule 属性设置列之间的宽度、样式和颜色规则。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">   div&#123;</div><div class="line">//规定列之间的宽度、样式和颜色规则：</div><div class="line">   -moz-column-rule:3px outset #ff0000;	/* Firefox */</div><div class="line">   -webkit-column-rule:3px outset #ff0000;	/* Safari and Chrome */</div><div class="line">   column-rule:3px outset #ff0000;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>新的多列属性</strong></li>
+</ul>
+<p><table style="border-collapse: collapse;border: 1px solid #aaa;"></table></p>
+<p><tbody><tr></tr></tbody></p>
+<p><th style="width:25%;">属性</th></p>
+<p><th>描述</th></p>
+<p><th style="width:5%;">CSS</th><br></p>
+<tr><br><td><a href="http://www.w3school.com.cn//cssref/pr_column-count.asp" title="CSS3 column-count 属性" target="_blank" rel="external">column-count</a></td><br><td>规定元素应该被分隔的列数。</td><br><td>3</td><br></tr>
+
+<tr><br><td><a href="http://www.w3school.com.cn//cssref/pr_column-fill.asp" title="CSS3 column-fill 属性" target="_blank" rel="external">column-fill</a></td><br><td>规定如何填充列。</td><br><td>3</td><br></tr>
+
+<tr><br><td><a href="http://www.w3school.com.cn//cssref/pr_column-gap.asp" title="CSS3 column-gap 属性" target="_blank" rel="external">column-gap</a></td><br><td>规定列之间的间隔。</td><br><td>3</td><br></tr>
+
+<tr><br><td><a href="http://www.w3school.com.cn//cssref/pr_column-rule.asp" title="CSS3 column-rule 属性" target="_blank" rel="external">column-rule</a></td><br><td>设置所有 column-rule-* 属性的简写属性。</td><br><td>3</td><br></tr>
+
+<tr><br><td><a href="http://www.w3school.com.cn//cssref/pr_column-rule-color.asp" title="CSS3 column-rule-color 属性" target="_blank" rel="external">column-rule-color</a></td><br><td>规定列之间规则的颜色。</td><br><td>3</td><br></tr>
+
+<tr><br><td><a href="http://www.w3school.com.cn//cssref/pr_column-rule-style.asp" title="CSS3 column-rule-style 属性" target="_blank" rel="external">column-rule-style</a></td><br><td>规定列之间规则的样式。</td><br><td>3</td><br></tr>
+
+<tr><br><td><a href="http://www.w3school.com.cn//cssref/pr_column-rule-width.asp" title="CSS3 column-rule-width 属性" target="_blank" rel="external">column-rule-width</a></td><br><td>规定列之间规则的宽度。</td><br><td>3</td><br></tr>
+
+<tr><br><td><a href="http://www.w3school.com.cn//cssref/pr_column-span.asp" title="CSS3 column-span 属性" target="_blank" rel="external">column-span</a></td><br><td>规定元素应该横跨的列数。</td><br><td>3</td><br></tr>
+
+<tr><br><td><a href="http://www.w3school.com.cn//cssref/pr_column-width.asp" title="CSS3 column-width 属性" target="_blank" rel="external">column-width</a></td><br><td>规定列的宽度。</td><br><td>3</td><br></tr>
+
+					</div>
+				</div>
+			</article>
+						
+		</div>
+
+		<div id="home_right">
+			<img src="../img/me.jpg" alt="..." class="img-rounded" height="190">
+			<ul class="list-group">
+				<li class="list-group-item list-group-item-success">
+					<h2>梁之健</h2></li>
+				<li class="list-group-item list-group-item-warning">Keep moving <br>and you will see the tomorrow sunshine!</li>
+				<li class="list-group-item list-group-item-danger"><h4>一个<br>不愿只做技术宅的<br>饥渴者</h4></li>
+			</ul>
+		</div>
+
+	</body>
+
+</html>
