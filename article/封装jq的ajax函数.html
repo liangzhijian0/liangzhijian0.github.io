@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+
+		<link rel="stylesheet" href="../css/new_file.css" />
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/mycss.css" />
+	</head>
+
+	<body>
+		<div id="header">
+			<div id="name">
+				<h1>LZJ</h1>
+			</div>
+			<div id="menu">
+				<ul class="nav nav-pills">
+					<li role="presentation"><a href="../index.html">Home</a></li>
+					<li role="presentation"><a href="../aboutme.html">About me</a></li>
+					<li role="presentation" class="active"><a href="#">Article</a></li>
+					<li role="presentation"><a href="#">Demo</a></li>
+					<li role="presentation"><a href="../front-end base.html">Front-end base</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="home_left">
+			<article class="article article-type-post  article-index" itemscope itemprop="blogPost">
+				<div class="article-inner">
+					<header class="article-header">
+						<h1 itemprop="name">
+                          <a class="article-title" href="">封装jq的ajax函数</a>
+                        </h1>
+						<a href="" class="archive-article-date">
+							<time itemprop="datePublished">2017-06-11</time>
+						</a>
+					</header>
+
+					<div class="article-entry" itemprop="articleBody">
+						<blockquote>
+							<p>当整个网页需要用到大量的异步方式来调用 数据，提交数据，那么每次操作都会使用$.ajax({……})</p>
+							<p>因此造成代码冗余，页面结构复杂。此时可以把ajax函数封装成方便自己调用的函数，提高重用率。</p>
+						</blockquote>
+						<blockquote>
+							<p>* url 发送请求的地址</p>
+							<p>* data 发送到服务器的数据，数组存储，如：{"date": new Date().getTime(), "state": 1}</p>
+							<p>* async 默认值: true。默认设置下，所有请求均为异步请求； false为发送同步请求</p>
+							<p>* type 请求方式("POST" 或 "GET")， 默认为 "GET"</p>
+							<p>* dataType 预期服务器返回的数据类型，常用的如：xml、html、json、text</p>
+							<p>* successfn 成功回调函数</p>
+							<p>* errorfn 失败回调函数</p>
+						</blockquote>
+						<p>以下jQuery.ax函数是比较通用的：</p>
+						<img src="../img/0611_1.png">
+						<p>如果我的做的一个项目大多情况都是用POST方法和JSON格式发送数据的话，可以封装成如下jq_post函数：</p>
+						<img src="../img/0611_2.png">
+					</div>
+				</div>
+			</article>
+
+		</div>
+
+		<div id="home_right">
+			<img src="../img/me.jpg" alt="..." class="img-rounded" height="190">
+			<ul class="list-group">
+				<li class="list-group-item list-group-item-success">
+					<h2>梁之健</h2></li>
+				<li class="list-group-item list-group-item-warning">Keep moving <br>and you will see the tomorrow sunshine!</li>
+				<li class="list-group-item list-group-item-danger">
+					<h4>一个<br>不愿只做技术宅的<br>饥渴者</h4></li>
+			</ul>
+		</div>
+
+	</body>
+
+</html>
