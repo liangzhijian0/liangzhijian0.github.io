@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+
+		<link rel="stylesheet" href="../css/new_file.css" />
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/mycss.css" />
+	</head>
+
+	<body>
+		<div id="header">
+			<div id="name">
+				<h1>LZJ</h1>
+			</div>
+			<div id="menu">
+				<ul class="nav nav-pills">
+					<li role="presentation"><a href="../index.html">Home</a></li>
+					<li role="presentation"><a href="../aboutme.html">About me</a></li>
+					<li role="presentation" class="active"><a href="#">Article</a></li>
+					<li role="presentation"><a href="#">Demo</a></li>
+					<li role="presentation"><a href="../front-end base.html">Front-end base</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="home_left">
+			 <article  class="article article-type-post  article-index" itemscope itemprop="blogPost">
+				<div class="article-inner">
+					<header class="article-header">
+						<h1 itemprop="name">
+                          <a class="article-title" href="">jq中val(),html(),text()区别</a>
+                        </h1>
+						<a href="" class="archive-article-date">
+							<time itemprop="datePublished">2017-06-12</time>
+						</a>
+					</header>
+
+					<div class="article-entry" itemprop="articleBody">						
+<blockquote>
+<p>.html()用为读取和修改元素的HTML标签</p>
+<p>.text()用来读取或修改元素的纯文本内容</p>
+<p>.val()用来读取或修改表单元素的value值</p>
+</blockquote>
+<p>三个方法功能上的对比：</p>
+<blockquote>
+ <p>(1)<br>.html(),.text(),.val()三种方法都是用来读取选定元素的内容；
+ 	只不过.html()是用来读取元素的HTML内容（包括其Html标签），.text()用来读取元素的纯文本内容，包括其后代元素，
+ 	.val()是用来读取表单元素的"value"值。其中.html()和.text()方法不能使用在表单元素上,而.val()只能使用在表单元素上；
+ 	另外.val()方法和.html()方法使用在多个元素上时，只读取第一个元素；但是.text()和他们不一样，如果.text()应用在多个元素上时，将会读取所有选中元素的文本内容。</p>
+ <p>(2)<br>.html(htmlString),.text(textString)和.val(value)三种方法都是用来替换选中元素的内容，如果三个方法同时运用在多个元素上时，那么将会替换所有选中元素的内容。</p>
+ <p>(3)<br>.html(),.text(),.val()都可以使用回调函数的返回值来动态的改变多个元素的内容。</p> 
+</blockquote>
+<p>html()中有两个方法，一个有参，一个无参</p>	
+<blockquote>
+<p>无参html（）：取得第一个匹配元素的html内容(包括&lt;&gt;)。返回的是一个String</p>
+</blockquote>
+<pre><code>
+	例子：
+           html页面代码：&lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt;
+
+           jquery代码：$("div").html();
+
+         结果：&lt;p&gt;Hello&lt;/p&gt;
+</code></pre>
+<blockquote>
+<p>有参html（val）：设置每一个匹配元素的html内容。返回一个jquery对象</p>
+</blockquote>
+<pre><code>
+	例子：
+          html页面代码：&lt;div&gt;&lt;/div&gt;
+          
+          jquery代码：$("div").html("&lt;p&gt;Nice to meet you&lt;/p&gt;");
+
+        结果：[ &lt;div&gt;&lt;p&gt; Nice to meet you&lt;/p&gt;&lt;/div&gt; ]，然后浏览器自动把p标签解释  
+</code></pre>
+<p>其次，text属性中有两个方法，一个有参，一个无参</p>
+<blockquote>
+<p>无参text（）：取得所有匹配元素的内容。结果是由所有匹配元素包含的文本内容组合起来的文本(不包括&lt;&gt;)。返回的是一个String</p>
+</blockquote>
+<pre><code>
+	例子：
+            html页面代码： &lt;p&gt;&lt;b&gt;Hello&lt;/b&gt;fine&lt;/p&gt;
+                          &lt;p&gt;Thank you!&lt;/p&gt;
+
+            jquery代码：$("p").text();
+
+        结果：HellofineThank you! 
+</code></pre>
+<blockquote>
+<p>有参text（val）：设置所有匹配元素的文本内容,与 html() 类似,返回一个jquery对象。浏览器不会解释&lt;&gt;</p>
+</blockquote>
+<pre><code>
+	例子：
+            html页面代码：&lt;p&gt;Test Paragraph.&lt;/p&gt;
+         
+            jquery代码：$("p").text("&lt;b&gt;Some&lt;/b&gt; new text.");
+
+         结果:[ &lt;p&gt;&lt;b&gt;Some&lt;/b&gt; new text.&lt;/p&gt; ](浏览器不会解释b标签)      
+</code></pre>
+<p>下面介绍val()在form中的用法：</p>
+<img src="../img/0612_1.png">
+<pre><code>
+	$("input:text").val()               //获取文本框value
+	$("input:radio:checked").val()      //获取单选框已选的value
+	$("input:checkbox:checked").val()   //只获取到复选框选的第一个value，想全部获取用map()
+	$("select option:selected").val()   //获取下拉菜单选中的value
+</code></pre>
+
+<pre><code>
+	$("input:text").val("xxx")                          //填写文本框value为xxx
+	$("input:radio").val(["male"])                      //选中单选框value为male的项
+	$("input:checkbox").val(["a","b"])                  //选中复选框value为a和b的项
+	$("select option[value=2]").attr("selected",true)   //选中下拉菜单选中value为2的项
+</code></pre>
+				</div>
+			</article>
+						
+		</div>
+
+		<div id="home_right">
+			<img src="../img/me.jpg" alt="..." class="img-rounded" height="190">
+			<ul class="list-group">
+				<li class="list-group-item list-group-item-success">
+					<h2>梁之健</h2></li>
+				<li class="list-group-item list-group-item-warning">Keep moving <br>and you will see the tomorrow sunshine!</li>
+				<li class="list-group-item list-group-item-danger"><h4>一个<br>不愿只做技术宅的<br>饥渴者</h4></li>
+			</ul>
+		</div>
+
+	</body>
+
+</html>
