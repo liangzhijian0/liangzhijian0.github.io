@@ -6,6 +6,140 @@
 		<title></title>
 		<link rel="stylesheet" href="css/bootstrap.css" />
 		<link rel="stylesheet" href="css/mycss.css" />
+		<style>
+			body{
+	font: normal 100% Helvetica, Arial, sans-serif;
+	height: 100%;  
+    margin: 0;  
+    padding: 0;
+	background-color:darkgray;
+}
+
+.page{  
+    box-sizing: border-box;/*为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制*/  
+    min-height: 100%;  
+    padding-bottom: 300px;  
+}  
+h1 {font-size: 1.5em;}
+
+small {font-size: 0.875em;}
+
+#header{
+	height: 100px;
+	width: 100%;
+	background-color: cornflowerblue;
+	text-align: center;
+	color: white;
+	font-size: 20px;
+	padding-top: 40px;
+}
+
+#content{
+	margin: 20px;
+	background-color: white;
+	height: 60%;
+	border: 1px solid white;
+	border-radius: 5px;
+}
+
+.form{
+	padding: 50px;
+}
+
+.form label{
+	height: 40px;
+	width: 80%;
+	
+}
+
+.form input[type=text]{
+	size: 21;
+	border: 0px white;
+}
+
+#footer{
+	width: 100%;
+	height: 20%;
+	background-color: white;
+	font-size: 30px;
+}
+
+.button {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  color: white;
+
+}
+#a{border-bottom: 4px solid white;
+   height: 15px;
+   width:28px;
+   border-top:  4px solid white;
+}
+#b{ margin-top: 5px;
+	border-bottom: 4px solid white;
+	width:28px;
+}
+
+.address{
+	color: blue;
+	border: 1px solid blue;
+	border-radius: 10px;
+	height: 30px;width:80px;
+	float: right;
+	text-align: center;
+}
+
+textarea:focus { outline: none; }
+input[type=radio] {
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 0;
+    outline: 0 !important;
+    line-height: 40px;
+    color: #d8d8d8;
+}
+input[type=radio]:after {
+    content: "";
+    display:block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  text-align: center;
+  line-height: 14px;
+  font-size: 16px;
+  color: #fff;
+    border: 3px solid #ddd;
+    background-color: #fff;
+    box-sizing:border-box;
+}
+input[type=radio]:checked:after {
+    content: "L";
+    transform:matrix(-0.766044,-0.642788,-0.642788,0.766044,0,0);
+    -webkit-transform:matrix(-0.766044,-0.642788,-0.642788,0.766044,0,0);
+    border-color: #099414;
+    background-color: #099414;
+}
+		</style>
 		<script src="js/jquery-1.9.1.js"></script>
 		<script>
 			$(document).ready(function (){
