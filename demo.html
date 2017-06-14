@@ -157,10 +157,11 @@ input[type=radio]:checked:after {
         
         alert($(window).height());
         var all_height=$(window).height();
-        $("#header").css("height",all_height*0.2);
+        $("#header").css({"height":all_height*0.2,"position":"fixed"});
+        $("#covered").css({"height":all_height*0.2,"background-color":"white"});
         $("img").css("height",all_height*0.2);
         $("#content").css("height",all_height*0.4);
-        $("#footer").css("height",all_height*0.2);
+        $("#footer").css({"height":all_height*0.2,"position":"fixed"});
 
 })
 		</script>
