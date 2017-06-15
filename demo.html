@@ -12,7 +12,7 @@
 	height: 100%;  
     margin: 0;  
     padding: 0;
-	background-color:darkgray;
+	background-color:#EEEEEE;
 }
 
 .page{  
@@ -25,46 +25,30 @@ h1 {font-size: 1.5em;}
 small {font-size: 0.875em;}
 
 #header{
-	height: 100px;
 	width: 100%;
-	background-color: cornflowerblue;
+	background-color: #0785BF;
 	text-align: center;
 	color: white;
-	font-size: 20px;
-	padding-top: 40px;
+	font-size: 20px;	
 }
 
 #content{
-	margin: 20px;
-	background-color: white;
-	height: 60%;
-	border: 1px solid white;
+	padding: 10px;
+	background-color: #FFFFFF;
+	border: 1px solid #FFFFFF;
 	border-radius: 5px;
 }
 
-.form{
-	padding: 50px;
-}
-
-.form label{
-	height: 40px;
-	width: 80%;
-	
-}
-
-.form input[type=text]{
-	size: 21;
-	border: 0px white;
-}
-
 #footer{
+	padding-left: 10px;
 	width: 100%;
-	height: 20%;
-	background-color: white;
-	font-size: 30px;
+	line-height:53px ;
+	background-color: #FFFFFF;
+	font-size: 16px;
 }
 
-.button {
+.buttona{
+  margin-top: -6px;
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
@@ -81,10 +65,19 @@ small {font-size: 0.875em;}
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  background-image: none;
-  border: 1px solid transparent;
-  color: white;
+  background-color: white;
+  border: 1px solid #0784BE;
+  border-radius: 15px ;
+  color: #0784BE;
 
+}
+
+.buttonb{
+	float: right;
+	background-color:#0784BE;
+	color: white;
+	border: none;
+	width: 120px;
 }
 #a{border-bottom: 4px solid white;
    height: 15px;
@@ -105,12 +98,19 @@ small {font-size: 0.875em;}
 	text-align: center;
 }
 
+.comments {
+ width:100%;/*自动适应父布局宽度*/
+ overflow:auto;
+ word-break:break-all;/*在ie中解决断行问题(防止自动变为在一行显示，主要解决ie兼容问题，ie8中当设宽度为100%时，文本域类容超过一行时，当我们双击文本内容就会自动变为一行显示，所以只能用ie的专有断行属性“word-break或word-wrap”控制其断行)*/
+}
+
 textarea:focus { outline: none; }
+
 input[type=radio] {
     display: inline-block;
     vertical-align: middle;
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     -webkit-appearance: none;
     background-color: transparent;
     border: 0;
@@ -121,8 +121,8 @@ input[type=radio] {
 input[type=radio]:after {
     content: "";
     display:block;
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
   text-align: center;
   line-height: 14px;
@@ -136,9 +136,20 @@ input[type=radio]:checked:after {
     content: "L";
     transform:matrix(-0.766044,-0.642788,-0.642788,0.766044,0,0);
     -webkit-transform:matrix(-0.766044,-0.642788,-0.642788,0.766044,0,0);
-    border-color: #099414;
-    background-color: #099414;
+    border-color: #0784BE;
+    background-color: #0784BE;
 }
+
+.first{
+	font-size: 16px;
+	width:100% ;
+	float: left;
+	border-bottom: 1px solid grey;
+	overflow:hidden;
+	color: #B8B8B8;
+	
+}
+
 		</style>
 		<script src="js/jquery-1.9.1.js"></script>
 		<script>
@@ -155,21 +166,24 @@ input[type=radio]:checked:after {
             }
         });
         
-        alert($(window).height());
+//      alert($(window).height());
         var all_height=$(window).height();
-        $("#header").css({"height":all_height*0.2,"position":"fixed"});
-        $("#covered").css({"height":all_height*0.2,"background-color":"white"});
-        $("img").css("height",all_height*0.2);
-        $("#content").css("height",all_height*0.4);
-        $("#footer").css({"height":all_height*0.2,"position":"fixed"});
-
+        $("#header").css({"height":all_height*0.083,"position":"fixed","padding-top":all_height*0.0207});
+        $("#covered").css({"height":all_height*0.083,"background-color":"white"});
+        $("img").css("height",all_height*0.333);
+        $("#content").css({"height":all_height*0.415,"margin":all_height*0.0415});
+        $("#footer").css({"height":all_height*0.083,"position":"fixed",});
+        $("#content label").css("height",all_height*0.083);
+        $(".first").css({"height":all_height*0.083,"padding-top":all_height*0.0207});
+        $(".second").css({"height":all_height*0.083,"padding-top":all_height*0.0207});
+//      $("textarea").css({"width":200px})
 })
 		</script>
 	</head>
 	
 	
 	<body>
-		<div class="page">
+		
 		<div id="header">
 			<div style="float: left;width: 20px;margin-left: 10px;">
 				<div id="a"></div>
@@ -180,35 +194,33 @@ input[type=radio]:checked:after {
 		<div id="covered"></div>
 		<img src="img/u=1209481488,2796752005&fm=26&gp=0.jpg" width="100%" />
 		<div id="content">
-			<form class="form">
-				<label>
-				   <span class="glyphicon glyphicon-map-marker"></span>
-				   <span>请选择上门地址</span>
-				   <div class="address">地址簿</div>
-				</label>
-				<hr />
-				<label>
-				   <span class="glyphicon glyphicon-time"></span>
-				   <span>上门时间</span>
-				   <span class="glyphicon glyphicon-menu-right" style="float: right;"></span>
-				   
-				</label>
-				<hr />
-				<label>
-				   <span class="glyphicon glyphicon-earphone"></span>
-				   <span>我想对小哥说</span><br />
-				   <textarea rows="5" cols="4" style="border:0px white;resize:none;" ></textarea>
-				  	
-				  </textarea>
-				</label>
-			</form>
+							
+				<div class="first">
+					<span class="glyphicon glyphicon-map-marker"></span>
+					<span>请选择上门地址</span>
+					<button class="buttona" style="float: right;">地址簿</button>
+				</div>
+				<div class="first">
+					<span class="glyphicon glyphicon-time"></span>
+				    <span>上门时间</span>
+				    <span class="glyphicon glyphicon-menu-right" style="float: right;"></span>
+				</div>
+				<div class="first" style="border-bottom:none ;">
+					<span class="glyphicon glyphicon-earphone"></span>
+				    <span>我想对小哥说</span><br />				    				  					   
+				</div>
+				<div>
+					<textarea style="width: 200px;"></textarea>
+				</div>
+				
+			
 		</div>
 		
 		<div id="footer">
 			<input type="radio" id="agree"/>我同意《预约上门回收条款》
 			
-			<button class="button">立即提交</button>
+			<button class="buttonb">立即提交</button>
 		</div>
-		</div>
+		
 	</body>
 </html>
