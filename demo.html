@@ -4,10 +4,55 @@
 		<meta charset="utf-8" />
 		<meta name=”viewport” content=”width=device-width, initial-scale=1″ />
 		<title></title>
-		<link rel="stylesheet" href="css/bootstrap.css" />
+		<!--<link rel="stylesheet" href="css/bootstrap.css" />-->
 		<link rel="stylesheet" href="css/mycss.css" />
 		<style>
-			body{
+			html .buttonb .buttona {font-size:10px}
+ 
+@media screen and (min-width:480px) and (max-width:639px) {
+    html,.buttonb,.buttona{
+        font-size: 15px
+    }
+}
+ 
+@media screen and (min-width:640px) and (max-width:719px) {
+    html,.buttonb,.buttona{
+        font-size: 20px
+    }
+}
+ 
+@media screen and (min-width:720px) and (max-width:749px) {
+    html,.buttonb,.buttona{
+        font-size: 22.5px
+    }
+}
+ 
+@media screen and (min-width:750px) and (max-width:799px) {
+    html,.buttonb,.buttona{
+        font-size: 23.5px
+    }
+}
+ 
+@media screen and (min-width:800px) and (max-width:959px) {
+    html,.buttonb,.buttona{
+        font-size: 25px
+    }
+}
+ 
+@media screen and (min-width:960px) and (max-width:1079px) {
+    html,.buttonb,.buttona{
+        font-size: 30px
+    }
+}
+ 
+@media screen and (min-width:1080px) {
+    html,.buttonb,.buttona{
+        font-size: 32px
+    }
+}
+
+
+body{
 	font: normal 100% Helvetica, Arial, sans-serif;
 	height: 100%;  
     margin: 0;  
@@ -29,7 +74,7 @@ small {font-size: 0.875em;}
 	background-color: #0785BF;
 	text-align: center;
 	color: white;
-	font-size: 20px;	
+/*	font-size: 20px;	*/
 }
 
 #content{
@@ -44,7 +89,7 @@ small {font-size: 0.875em;}
 	width: 100%;
 	line-height:53px ;
 	background-color: #FFFFFF;
-	font-size: 16px;
+	/*font-size: 16px;*/
 }
 
 .buttona{
@@ -52,7 +97,7 @@ small {font-size: 0.875em;}
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
-  font-size: 14px;
+/*  font-size: 32px;*/
   font-weight: normal;
   line-height: 1.42857143;
   text-align: center;
@@ -77,7 +122,25 @@ small {font-size: 0.875em;}
 	background-color:#0784BE;
 	color: white;
 	border: none;
-	width: 120px;
+
+	
+	margin-top: -6px;
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+/*  font-size: 32px;*/
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 #a{border-bottom: 4px solid white;
    height: 15px;
@@ -141,7 +204,7 @@ input[type=radio]:checked:after {
 }
 
 .first{
-	font-size: 16px;
+	/*font-size: 16px;*/
 	width:100% ;
 	float: left;
 	border-bottom: 1px solid grey;
@@ -154,6 +217,16 @@ input[type=radio]:checked:after {
 		<script src="js/jquery-1.9.1.js"></script>
 		<script>
 			$(document).ready(function (){
+				function refreshRem(){
+        var width = docEl.getBoundingClientRect().width;
+        if (width / dpr > 540) {
+            width = 540 * dpr;
+        }
+        var rem = width / 10;//看到了吗 看到了吗 这句话 分成10份哦
+        docEl.style.fontSize = rem + 'px';
+        flexible.rem = win.rem = rem;
+    }
+				
     var redioCount = 0;
 　　　if($("#agree").attr("checked")=="checked") redioCount=1;
         $("input[type='radio']").click(function(){
@@ -166,7 +239,7 @@ input[type=radio]:checked:after {
             }
         });
         
-//      alert($(window).height());
+        alert($(window).width());
         var all_height=$(window).height();
         $("#header").css({"height":all_height*0.083,"position":"fixed","padding-top":all_height*0.0207});
         $("#covered").css({"height":all_height*0.083,"background-color":"white"});
@@ -176,8 +249,8 @@ input[type=radio]:checked:after {
         $("#content label").css("height",all_height*0.083);
         $(".first").css({"height":all_height*0.083,"padding-top":all_height*0.0207});
         $(".second").css({"height":all_height*0.083,"padding-top":all_height*0.0207});
-//      $("textarea").css({"width":200px})
         $(".buttonb").css("height",all_height*0.083);
+//      $("textarea").css({"width":200px})
 })
 		</script>
 	</head>
