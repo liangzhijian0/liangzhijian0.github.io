@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="../css/new_file.css" />
+		<link rel="stylesheet" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" href="../css/mycss.css" />
+		<style>
+			img{width:300px;height: 200px;}
+			#article_content ul li{
+				margin: 0;				
+				float: left;
+				width:300px;
+				height: 200px;
+				-webkit-transform-style: preserve-3d;
+				-webkit-transform: perspective(1000px);
+			} 
+			
+			#article_content ul li a{
+				position: relative;
+				width:300px;
+				height: 200px;
+				display: block;
+			} 
+			
+			#article_content ul li a div{
+				position: absolute;
+				top:0;
+				left: 0;
+				transition:all 0.5s ;
+			}	
+			
+			#article_content ul li a .font{
+				transform: rotateY(0deg);
+				z-index: 8;
+			}
+			
+			#article_content ul li a .back{
+				transform: rotateY(-180deg);
+			}
+			
+			#article_content ul li:hover a .font{
+				transform: rotateY(180deg);
+				
+			} 
+			
+			#article_content ul li:hover a .back{
+				transform: rotateY(0deg);
+				z-index: 10;			
+			} 
+					
+		</style>
+	</head>
+
+	<body>
+		<div id="header">
+			<div id="name">
+				<h1>LZJ</h1>
+			</div>
+			<div id="menu">
+				<ul class="nav nav-pills">
+					<li role="presentation"><a href="../index.html">Home</a></li>
+					<li role="presentation"><a href="../aboutme.html">About me</a></li>
+					<li role="presentation"><a href="../article.html">Article</a></li>
+					<li role="presentation" class="active"><a href="#">Demo</a></li>
+					<li role="presentation"><a href="../front-end base.html">Front-end base</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="article_content">
+			<ul>
+				<li>
+					<a>
+						<div class="font"><img src="photo/1a.jpg" /></div>
+						<div class="back"><img src="photo/1b.jpg" /></div>
+					</a>
+				</li>
+				<li>
+					<a>
+						<div class="font"><img src="photo/2a.jpg" /></div>
+						<div class="back"><img src="photo/2b.jpg" /></div>
+					</a>
+				</li>
+				<li>
+					<a>
+						<div class="font"><img src="photo/3a.jpg" /></div>
+						<div class="back"><img src="photo/3b.jpg" /></div>
+					</a>
+				</li>
+				<li>
+					<a>
+						<div class="font"><img src="photo/4a.jpg" /></div>
+						<div class="back"><img src="photo/4b.jpg" /></div>
+					</a>
+				</li>
+				<li>
+					<a>
+						<div class="font"><img src="photo/5a.jpg" /></div>
+						<div class="back"><img src="photo/5b.jpg" /></div>
+					</a>
+				</li>
+				<li>
+					<a>
+						<div class="font"><img src="photo/6a.jpg" /></div>
+						<div class="back"><img src="photo/6b.jpg" /></div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+
+</html>
